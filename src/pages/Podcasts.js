@@ -20,6 +20,7 @@ function Podcasts() {
           podcastsData.push({ id: doc.id, ...doc.data() });
         });
         dispatch(setPodcasts(podcastsData));
+        setFilteredPodcasts(podcastsData);
       },
       (error) => {
         console.error("Error fetching podcasts:", error);

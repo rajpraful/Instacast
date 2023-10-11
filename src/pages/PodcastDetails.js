@@ -9,7 +9,7 @@ import AudioPlayer from "../components/Podcast/AudioPlayer";
 
 function PodcastDetails() {
   const [details, setDetails] = useState(null);
-  const [episodes, setEpisodes] = useState(null);
+  const [episodes, setEpisodes] = useState([]);
   const [playingFile, setPlayingFile] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
