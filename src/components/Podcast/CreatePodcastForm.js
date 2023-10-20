@@ -12,6 +12,7 @@ function CreatePodcastForm() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [displayImage, setDisplayImage] = useState();
+  const [genre, setGenre] = useState("");
   const [bannerImage, setBannerImage] = useState();
 
   const [loading, setLoading] = useState(false);
@@ -38,6 +39,7 @@ function CreatePodcastForm() {
         const podcastData = {
           title: title,
           description: desc,
+          genre: genre,
           bannerImage: bannerImageUrl,
           displayImage: displayImageUrl,
           createdBy: auth.currentUser.uid,
@@ -84,6 +86,25 @@ function CreatePodcastForm() {
         type="text"
         required={true}
       />
+      <select
+        name="genre"
+        id="genre"
+        value={genre}
+        onChange={(e) => {
+          setGenre(e.target.value);
+        }}
+        className="custom-input"
+        style={{ width: "73vw" }}
+      >
+        <option value="tech">Tech</option>
+        <option value="business">Business</option>
+        <option value="finance">Finance</option>
+        <option value="personal">Personal</option>
+        <option value="others">Others</option>
+        <option value="" disabled hidden style={{ color: "#eee" }}>
+          Select genre
+        </option>
+      </select>
       <FileInput
         accept={"image/*"}
         id="display-image-input"

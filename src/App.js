@@ -30,6 +30,7 @@ function App() {
                 name: userData.name,
                 email: userData.email,
                 uid: user.uid,
+                profileImage: userData.profileImage,
               })
             );
           }

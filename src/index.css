@@ -94,3 +94,10 @@ a {
   text-align: left;
   width: 100%;
 }
+
+.readable-input {
+  outline: none;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+}

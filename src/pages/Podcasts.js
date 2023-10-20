@@ -10,6 +10,7 @@ function Podcasts() {
   const dispatch = useDispatch();
   const podcasts = useSelector((state) => state.podcasts.podcasts);
   const [search, setSearch] = useState("");
+  const [genre, setGenre] = useState("all");
   const [filteredPodcasts, setFilteredPodcasts] = useState(podcasts);
   useEffect(() => {
     onSnapshot(
@@ -35,6 +36,19 @@ function Podcasts() {
     );
     setFilteredPodcasts(filteredData);
   };
+
+  const handleFilter = (value) => {
+    setGenre(value);
+    if (value !== "all") {
+      const filteredData = podcasts.filter(
+        (item) => item.genre?.toLowerCase() === value.toLowerCase()
+      );
+      setFilteredPodcasts(filteredData);
+    } else {
+      setFilteredPodcasts(podcasts);
+    }
+  };
+
   return (
     <div className="input-wrapper" style={{ marginTop: "1rem" }}>
       <h1>discover podcasts</h1>
@@ -44,6 +58,25 @@ function Podcasts() {
         placeholder="Search by Title"
         type="text"
       />
+      <div style={{ textAlign: "right", width: "100%" }}>
+        <select
+          name="genre"
+          id="genre"
+          value={genre}
+          onChange={(e) => {
+            handleFilter(e.target.value);
+          }}
+          className="custom-input"
+          style={{ width: "150px" }}
+        >
+          <option value="tech">Tech</option>
+          <option value="business">Business</option>
+          <option value="finance">Finance</option>
+          <option value="personal">Personal</option>
+          <option value="others">Others</option>
+          <option value="all">Genre - All</option>
+        </select>
+      </div>
       {filteredPodcasts.length > 0 ? (
         <div className="podcasts-flex" style={{ marginTop: "1.5rem" }}>
           {filteredPodcasts.map((data, i) => {

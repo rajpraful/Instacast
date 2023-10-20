@@ -4,19 +4,26 @@ import Button from "../../common/Button";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { useDispatch } from "react-redux";
-import { auth, db } from "../../../firebase";
+import { auth, db, storage } from "../../../firebase";
 import { setUser } from "../../../slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import FileInput from "../../common/Input/FileInput";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 function SignupForm() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [profileImage, setProfileImage] = useState();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const profileImageHandle = (file) => {
+    setProfileImage(file);
+  };
 
   const handleSignup = async () => {
     setLoading(true);
@@ -27,6 +34,10 @@ function SignupForm() {
       email
     ) {
       try {
+        const profileImageRef = ref(storage, `users/${email}/${Date.now()}`);
+        await uploadBytes(profileImageRef, profileImage);
+        const profileImageUrl = await getDownloadURL(profileImageRef);
+
         // Creating user's account.
         const userCredential = await createUserWithEmailAndPassword(
           auth,
@@ -40,6 +51,7 @@ function SignupForm() {
           name: fullName,
           email: user.email,
           uid: user.uid,
+          profileImage: profileImageUrl,
         });
 
         // Save data in the redux, call the redux action
@@ -48,6 +60,7 @@ function SignupForm() {
             name: fullName,
             email: user.email,
             uid: user.uid,
+            profileImage: user.profileImage,
           })
         );
         toast.success("User has been created!");
@@ -87,6 +100,12 @@ function SignupForm() {
         placeholder="Email"
         type="text"
         required={true}
+      />
+      <FileInput
+        accept={"image/*"}
+        id="profile-image-input"
+        fileHandleFnc={profileImageHandle}
+        text={"Profile Image Upload"}
       />
       <InputComponent
         state={password}

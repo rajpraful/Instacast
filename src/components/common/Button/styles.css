@@ -1,4 +1,5 @@
-.custom-btn {
+.custom-btn,
+.profile-btn {
   text-align: center;
   border: 2px solid var(--white);
   padding: 1rem;
@@ -10,8 +11,13 @@
   font-weight: 500;
 }
 
-.custom-btn:hover {
+.custom-btn:hover,
+.profile-btn:hover {
   background-color: var(--white);
   color: var(--theme);
   transition: all 0.5s;
+}
+
+.profile-btn {
+  width: 150px;
 }

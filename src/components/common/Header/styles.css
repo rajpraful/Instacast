@@ -3,6 +3,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.profileImage {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+}
+
+.profileImage img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border: 1px solid #fff;
+}
+
+.profileImage p {
+  color: #b4b0b0;
+  padding-left: 18px;
+  font-size: 1rem;
 }
 
 .links {
