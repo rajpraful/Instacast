@@ -12,13 +12,14 @@ const Home = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/profile");
+      navigate("/podcasts");
     }
   }, []);
 
   return (
     <div>
       <div className="input-wrapper">
+      
         {flag === "login" ? (
           <LoginForm />
         ) : flag === "signup" ? (

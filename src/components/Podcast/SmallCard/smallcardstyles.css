@@ -1,0 +1,58 @@
+.podcast-card-smallcard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding-left:20px;
+  padding-right: 50px;
+  gap:20px;
+  min-width: 200px;
+  max-width : 270px;
+  height: 60px;
+  backdrop-filter: blur(16px) saturate(144%);
+    -webkit-backdrop-filter: blur(16px) saturate(144%);
+    background-color: rgba(0, 0, 0, 0.629);
+    border-radius: 12px;
+    /* border: 1px solid rgba(255, 255, 255, 0.125); */
+
+  
+    
+   /* padding-bottom: 2rem; */
+   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.42);
+   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.42);
+   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.171);
+  
+  cursor: pointer;
+}
+
+
+.display-image-podcast-smallcard{
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+border : 3px solid rgba(120, 204, 234, 0.196);
+  object-fit:fill;
+  
+}
+
+.podcast-card-smallcard:hover {
+  opacity: 1;
+  box-shadow: -4px 10px 58px 18px rgba(255, 255, 255, 0.1);;
+  scale: 110%;
+  transition: all 0.3s;
+}
+
+.title-podcast-smallcard {
+  color:white !important;
+  
+  font-size: 10px;
+  font-weight:600;
+  
+  white-space: nowrap; 
+  width: 100px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  
+}
+
+

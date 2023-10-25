@@ -28,6 +28,11 @@ function ResetForm({ setFlag }) {
   };
   return (
     <>
+
+<div className="branding"  >
+
+<img className="logo" src="/LogoTrans.png" alt="Logo" />
+</div>
       <h1>Reset Password</h1>
       <InputComponent
         state={email}

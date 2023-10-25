@@ -1,14 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { auth, db, storage } from "../firebase";
 import Button from "../components/common/Button";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { collection, doc, getDoc, onSnapshot, query, setDoc } from "firebase/firestore";
 import { TiEdit } from "react-icons/ti";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { setPodcasts } from "../slices/podcastsSlice";
+import PodcastCard from "../components/Podcast/PodcastCard";
 
 function Profile() {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   const [userDetails, setUserDetails] = useState({});
   const [profileDetails, setProfileDetails] = useState({});
@@ -16,6 +19,7 @@ function Profile() {
   const [profilePicSrc, setProfilePicSrc] = useState(null);
   const [isEdit, setIsEdit] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [myPodcasts,setMyPodcasts] = useState("");
   const nameRef = useRef(null);
 
   useEffect(() => {
@@ -26,6 +30,22 @@ function Profile() {
         setUserDetails(data);
         setProfileDetails(data);
       }
+
+      
+        onSnapshot(
+          query(collection(db, "podcasts")),
+          (querySnapshot) => {
+            const podcastsData = [];
+            querySnapshot.forEach((doc) => {
+              podcastsData.push({ id: doc.id, ...doc.data() });
+            });
+            dispatch(setPodcasts(podcastsData));
+            setMyPodcasts(podcastsData);
+          },
+          (error) => {
+            console.error("Error fetching podcasts:", error);
+          }
+        );
     };
     user?.uid && getDetails();
   }, [user]);
@@ -86,13 +106,15 @@ function Profile() {
   };
 
   return (
-    <div style={{ padding: "50px", display: "flex", justifyContent: "center" }}>
+    <>
+    <div style={{ padding: "50px", display: "flex",alignItems:"center",flexDirection:"column", justifyContent: "center" }}>
       <div
         style={{
           display: "flex",
           gap: "20px",
           flexDirection: "column",
           alignItems: "center",
+          marginTop:"-40px"
         }}
       >
         <div
@@ -187,8 +209,35 @@ function Profile() {
           />
         </div>
       </div>
+      
+     <div style={{marginTop:"40px"}}><h2 style={{width:"100%",margin:"auto"}}>{profileDetails.name}'s Podcasts</h2></div>
+      { myPodcasts.length > 0 && (
+          <>
+            <div className="podcasts-flex-profile" style={{ marginTop: "1.5rem" }}>
+              {myPodcasts.map((data, i) => {
+                return (
+                  <PodcastCard
+                    key={i}
+                    title={data.title}
+                    id={data.id}
+                    displayImage={data.displayImage}
+                  />
+                );
+              })}
+            </div>
+          </>
+        ) }
+
+
+
     </div>
+    
+    
+
+    </>
+    
   );
+
 }
 
 export default Profile;

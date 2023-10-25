@@ -8,6 +8,7 @@ function PodcastCard({ id, title, displayImage }) {
       <div className="podcast-card">
         <img className="display-image-podcast" src={displayImage} alt={title} />
         <p className="title-podcast">{title}</p>
+        <p className="title-podcast-content">TRENDING NOW ...</p>
       </div>
     </Link>
   );

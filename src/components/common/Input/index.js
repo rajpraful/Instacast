@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.css";
-function InputComponent({ type, state, setState, placeholder, required }) {
+function InputComponent({ type, state, setState, placeholder, required,className }) {
   return (
     <input
       type={type}
@@ -8,7 +8,7 @@ function InputComponent({ type, state, setState, placeholder, required }) {
       onChange={(e) => setState(e.target.value)}
       placeholder={placeholder}
       required={required}
-      className="custom-input"
+      className={`custom-input ${className}`}
     />
   );
 }

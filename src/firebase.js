@@ -9,13 +9,13 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDozbfEZ6clrWmvh3iUdNys4yDMNA00y5M",
-  authDomain: "instacast-ef5b5.firebaseapp.com",
-  projectId: "instacast-ef5b5",
-  storageBucket: "instacast-ef5b5.appspot.com",
-  messagingSenderId: "853937386108",
-  appId: "1:853937386108:web:3fe5277ccc2f5c85844ff9",
-  measurementId: "G-X11ZCDVJFS",
+  apiKey: "AIzaSyBB2WGT9ZVtR2eSPDkh4BFoe-buWCFZUaw",
+   authDomain: "instacast-podcast-app.firebaseapp.com",
+   projectId: "instacast-podcast-app",
+   storageBucket: "instacast-podcast-app.appspot.com",
+   messagingSenderId: "121252124979",
+   appId: "1:121252124979:web:ba9fe209e2436f5b07c646",
+   measurementId: "G-ZTKMMXK04Q"
 };
 
 // Initialize Firebase

@@ -88,6 +88,7 @@ function PodcastDetails() {
             {episodes.length > 0 ? (
               <>
                 {episodes.map((episode, index) => {
+                  {console.log(episode,"episode")}
                   return (
                     <EpisodeDetails
                       key={index}
@@ -95,6 +96,7 @@ function PodcastDetails() {
                       title={episode.title}
                       description={episode.description}
                       audioFile={episode.audioFile}
+                      
                       onClick={(file) => setPlayingFile(file)}
                     />
                   );
@@ -106,7 +108,9 @@ function PodcastDetails() {
           </>
         )}
       </div>
+      {console.log("src",playingFile)}
       {playingFile && (
+        
         <AudioPlayer audioSrc={playingFile} image={details.displayImage} />
       )}
     </div>

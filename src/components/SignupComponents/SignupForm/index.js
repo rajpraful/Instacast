@@ -65,7 +65,7 @@ function SignupForm() {
         );
         toast.success("User has been created!");
         setLoading(false);
-        navigate("/profile");
+        navigate("/podcasts");
       } catch (e) {
         toast.error(e.message);
         setLoading(false);
@@ -86,6 +86,11 @@ function SignupForm() {
 
   return (
     <>
+
+<div className="brandingsignup">
+
+<img className="logosignup" src="/LogoTrans.png" alt="Logo" />
+</div>
       <h1>Signup</h1>
       <InputComponent
         state={fullName}

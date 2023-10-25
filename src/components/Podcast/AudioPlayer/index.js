@@ -89,6 +89,7 @@ function AudioPlayer({ audioSrc, image }) {
   return (
     <div className="custom-audio-player">
       <img src={image} className="display-image-player" alt="audio" />
+      
       <audio ref={audioRef} src={audioSrc} />
       <p className="audio-btn" onClick={togglePlay}>
         {isPlaying ? <FaPause /> : <FaPlay />}

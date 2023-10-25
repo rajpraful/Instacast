@@ -1,7 +1,7 @@
 .custom-btn,
 .profile-btn {
   text-align: center;
-  border: 2px solid var(--white);
+  border: 2px solid var(--purple-grey);
   padding: 1rem;
   border-radius: 0.35rem;
   cursor: pointer;
@@ -13,9 +13,11 @@
 
 .custom-btn:hover,
 .profile-btn:hover {
-  background-color: var(--white);
+  background: linear-gradient(90deg, rgba(3,27,33,1) 7%, rgba(21,107,131,1) 49%, rgba(3,32,40,1) 92%);
+ 
+  background-position: right center;
   color: var(--theme);
-  transition: all 0.5s;
+  transition: all 0s ease-in;
 }
 
 .profile-btn {
