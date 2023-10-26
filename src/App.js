@@ -45,7 +45,7 @@ function App() {
 
   return (
     <main className="App">
-      <ToastContainer />
+      <ToastContainer theme="dark" />
       <BrowserRouter>
         <Header />
         <Routes>

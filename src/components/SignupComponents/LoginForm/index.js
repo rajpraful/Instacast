@@ -53,12 +53,9 @@ function LoginForm() {
   };
   return (
     <>
-
-<div className="branding">
-
-<img className="logo" src="/LogoTrans.png" alt="Logo" />
-</div>
-   
+      <div className="branding">
+        <img className="logo" src="/LogoTrans.png" alt="Logo" />
+      </div>
       <h1>Login</h1>
       <InputComponent
         state={email}

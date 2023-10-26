@@ -8,10 +8,9 @@
 
 .profileImage {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 18px;
+  left: 18px;
   display: inline-flex;
-  /* border */
 }
 
 .profileImage img {
@@ -19,7 +18,7 @@
   height: 50px;
   width: 50px;
   object-fit: cover;
-  border: 1px solid #fff;
+  border: 2px solid #125355;
 }
 
 .profileImage p {
@@ -59,4 +58,65 @@
   filter: blur(100px);
   z-index: -1;
   top: -120px;
+}
+
+.hideInDesktop {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .gradient {
+    width: 300px;
+  }
+
+  .hideInMobile {
+    display: none;
+  }
+
+  .links {
+    gap: 0.75rem;
+  }
+
+  .links a {
+    font-size: 12px;
+  }
+
+  .navbar {
+    justify-content: end;
+  }
+
+  .mobileAddIcon {
+    margin-left: 1rem;
+    box-shadow: 0px 0px 12px 0 rgba(255, 255, 255, 0.125);
+    border-radius: 50%;
+    display: inline-flex;
+  }
+
+  .menuIcon {
+    opacity: 0.7;
+    display: inline-flex;
+    margin-left: 12px;
+  }
+
+  .hideInDesktop {
+    display: inherit;
+  }
+
+  .profileImage img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-text {
+  animation: fadeIn 1500ms;
 }

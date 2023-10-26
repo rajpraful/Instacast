@@ -86,11 +86,9 @@ function SignupForm() {
 
   return (
     <>
-
-<div className="brandingsignup">
-
-<img className="logosignup" src="/LogoTrans.png" alt="Logo" />
-</div>
+      <div className="brandingsignup">
+        <img className="logosignup" src="/LogoTrans.png" alt="Logo" />
+      </div>
       <h1>Signup</h1>
       <InputComponent
         state={fullName}

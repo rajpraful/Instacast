@@ -8,7 +8,13 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  background-color: rgba(14, 2, 21, 0.5);
+  background-color: rgb(31, 80, 96);
+  background: linear-gradient(
+    90deg,
+    rgba(31, 80, 96, 0.6433167016806722) 0%,
+    rgba(31, 80, 96, 0.6) 50%,
+    rgba(32, 86, 103, 0.6293110994397759) 100%
+  );
 }
 
 .display-image-player {
@@ -19,7 +25,7 @@
 }
 
 .duration-range {
-  filter: hue-rotate(25deg);
+  filter: hue-rotate(304deg);
   width: 100%;
 }
 
@@ -32,7 +38,7 @@
 }
 
 .volume-range {
-  filter: hue-rotate(25deg);
+  filter: hue-rotate(304deg);
   width: 25%;
 }
 

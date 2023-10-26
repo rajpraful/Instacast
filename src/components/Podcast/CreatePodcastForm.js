@@ -86,25 +86,26 @@ function CreatePodcastForm() {
         type="text"
         required={true}
       />
-      <select
-        name="genre"
-        id="genre"
-        value={genre}
-        onChange={(e) => {
-          setGenre(e.target.value);
-        }}
-        className="custom-input"
-        style={{ width: "73vw" }}
-      >
-        <option value="tech">Tech</option>
-        <option value="business">Business</option>
-        <option value="finance">Finance</option>
-        <option value="personal">Personal</option>
-        <option value="others">Others</option>
-        <option value="" disabled hidden style={{ color: "#eee" }}>
-          Select genre
-        </option>
-      </select>
+      <div className="custom-input">
+        <select
+          name="genre"
+          id="genre"
+          value={genre}
+          onChange={(e) => {
+            setGenre(e.target.value);
+          }}
+          className="custom-select"
+        >
+          <option value="tech">Tech</option>
+          <option value="business">Business</option>
+          <option value="finance">Finance</option>
+          <option value="personal">Personal</option>
+          <option value="others">Others</option>
+          <option value="" disabled hidden>
+            Select genre
+          </option>
+        </select>
+      </div>
       <FileInput
         accept={"image/*"}
         id="display-image-input"
